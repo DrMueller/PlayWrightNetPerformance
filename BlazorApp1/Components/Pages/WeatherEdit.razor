@@ -1,0 +1,22 @@
+﻿@page "/weatheredit"
+
+<EditForm Model="@WeatherForecast" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <h1>Weather edit</h1>
+
+    <div class="form-group">
+        <label for="summary">First Summary:</label>
+        <InputText 
+            data-testid="summary"
+            class="form-control" id="summary" @bind-Value="@WeatherForecast.Summary" />
+    </div>
+
+    <div class="form-group">
+        <label for="temparature">First Temparature:</label>
+        <InputNumber data-testid="temparature"
+            class="form-control" id="temparature" @bind-Value="@WeatherForecast.TemperatureC" />
+    </div>
+
+    <button type="submit" data-testid="save" class="btn btn-primary btn-save">Save</button>
+</EditForm>

@@ -1,0 +1,33 @@
+﻿@page "/weatheroverview"
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<button 
+    data-testid="create"
+    class="btn btn-primary" @onclick="Create"></button>
+
+<p>This component demonstrates showing data.</p>
+
+<table data-testid="weather-list" class="table">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th aria-label="Temperature in Celsius">Temp. (C)</th>
+        <th aria-label="Temperature in Farenheit">Temp. (F)</th>
+        <th>Summary</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var forecast in WeatherService.WeatherForecasts)
+    {
+        <tr>
+            <td>@forecast.Date.ToShortDateString()</td>
+            <td>@forecast.TemperatureC</td>
+            <td>@forecast.TemperatureF</td>
+            <td>@forecast.Summary</td>
+        </tr>
+    }
+    </tbody>
+</table>
